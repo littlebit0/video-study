@@ -56,3 +56,7 @@ scripts/                     check_env.sh, new_video.py, extract_sources.py, spl
 
 - 나레이션은 Edge-TTS 로 만들기 때문에 대본 텍스트가 Microsoft TTS 서비스로 전송됩니다.
 - 강의자료와 녹음은 각자 수강 과목의 개인 학습용으로만 사용하세요.
+
+## 라이선스
+
+MIT — [`LICENSE`](LICENSE)
