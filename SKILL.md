@@ -59,10 +59,6 @@ missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 �
 - 폴더를 열어 달라고 하면 `open <project>/final`.
 - 프로젝트 상태(완성 편, 남은 주차)를 메모리에 project 로 기록한다.
 
-## 7. 홍보물 (선택)
-- 시리즈를 소개하는 세로 릴스·숏츠는 [Remotion](https://github.com/remotion-dev/remotion) 으로 만든다. `remotion-best-practices` 스킬(Remotion 공식)과 `reel-maker` 스킬을 쓴다.
-- 소개 웹페이지·README 랜딩을 만들 때는 [Hallmark](https://github.com/Nutlope/hallmark)(`npx skills add nutlope/hallmark -g`)로 AI 티 나는 디자인을 피한다. 영상 제작 자체에는 필요 없다.
-
 ## 겪어 본 함정
 | 증상 | 원인 | 해결 |
 |---|---|---|
