@@ -20,7 +20,7 @@
 1. 자기 편 `brief.md` 를 읽는다. 필요하면 `sources/` 와 원자료(읽기만)를 확인.
 2. `plan.md`: 6~9개 장면, 장면당 2~5세그먼트, 총 9~12분. 첫 장면 = 다루는 주차 + "오늘의 질문". 마지막 장면 = 시험 대비 체크리스트.
 3. 나레이션 → `generate_tts_<name>.py` 실행 → 총 길이 확인. 목표를 벗어나면 나레이션 수정, `audio/video_<name>/` 삭제 후 재생성.
-4. 장면 작성 → `~/tools/.venv/bin/python ~/tools/video_utils/validate_scenes.py src/video_<name>.py` 0건이 될 때까지 → `--screenshots` 후 `frame_sheet.py dir review/video_<name> review/sheet` 로 묶어 **모든 스크린샷을 직접 본다**. 출력의 `WARNING` (시간 초과·자막 영역)도 0개여야 한다. 이어서 `python3 ~/.claude/skills/video-study/scripts/lint_scene.py src/video_<name>.py` FAIL 0 (규칙: `references/design-floor.md`).
+4. 장면 작성 → `~/tools/.venv/bin/python ~/tools/video_utils/validate_scenes.py src/video_<name>.py` 0건이 될 때까지 → `--screenshots` 후 `frame_sheet.py dir review/video_<name> review/sheet` 로 묶어 **모든 스크린샷을 직접 본다**. 출력의 `WARNING` (시간 초과·자막 영역)도 0개여야 한다.
 5. 빌드: `~/tools/.venv/bin/python intermediate/common/build.py vN_<name> --quality h --jobs 2` (여러 편 동시 진행이면 jobs 2, 혼자면 4~5). 1080p 10분 렌더는 보통 1~3분.
 6. 완성본 확인: `frame_sheet.py video final/vN_<name>/vN_<name>_captioned.mp4 <out.png> 6` 로 프레임을 보고, srt 마지막 자막 끝 시각이 영상 길이와 맞는지 본다.
 

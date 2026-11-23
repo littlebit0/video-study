@@ -83,14 +83,13 @@ references/
   setup.md                   환경 설치 (Homebrew 없이)
 assets/common/               ko_setup.py(한글 글꼴·음성), ui.py, seg.py(나레이션 동기화), build.py(렌더·합치기·자막)
 assets/template/             새 편 템플릿 (나레이션, TTS, 장면)
-promo/                       Remotion 릴스 템플릿·절차 (PROMO.md)
-scripts/                     lint_scene.py, patch_validator.py, check_env.sh, new_video.py, extract_sources.py, split_by_marker.py, vtt_to_txt.py, frame_sheet.py
+scripts/                     check_env.sh, new_video.py, extract_sources.py, split_by_marker.py, vtt_to_txt.py, frame_sheet.py
 ```
 
-## 디자인 규칙과 홍보 릴스
+## 함께 쓰면 좋은 도구
 
-- **디자인 바닥 규칙**: [Hallmark](https://github.com/Nutlope/hallmark) 의 Floor 규칙(색 토큰, 이모지 아이콘 금지, 지어낸 숫자 금지 등)을 Manim 영상에 옮겼습니다. `references/design-floor.md`, 검사는 `scripts/lint_scene.py`.
-- **홍보 릴스**: [Remotion](https://github.com/remotion-dev/remotion) 으로 시리즈 소개용 세로 영상(30초 안팎)을 만드는 템플릿과 절차가 `promo/` 에 들어 있습니다. `promo/PROMO.md` 참고. 필요하면 Remotion 공식 스킬(`npx skills add remotion-dev/remotion`)을 함께 설치하세요.
+- [Remotion](https://github.com/remotion-dev/remotion): 시리즈 소개용 세로 릴스·숏츠 제작 (선택).
+- [Hallmark](https://github.com/Nutlope/hallmark): 소개 웹페이지를 만들 때 AI 티 나는 디자인 방지 (선택).
 
 ## 참고
 
