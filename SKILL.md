@@ -13,6 +13,7 @@ notes-to-video(영상 엔진), watch(유튜브 영상강의 수집), 병렬 에�
 ## 0. 환경 확인
 ```bash
 bash $VS/scripts/check_env.sh
+python3 $VS/scripts/patch_validator.py   # 한 번만: 검사기 오탐(대각선 선) 보정
 ```
 missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 설치할지 사용자에게 물은 뒤** 설치한다(질문·버튼은 한국어). 유튜브 링크가 없으면 yt-dlp 는 필요 없다.
 
@@ -31,7 +32,7 @@ missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 �
 
 ## 2. 시리즈 구성
 - 주차 표를 보고 단원별로 3~5주 분량씩 묶어 편을 나눈다(편당 9~12분). 시험 해설은 **별도 편**.
-- 사용자에게 이미 정해진 것은 다시 묻지 않는다. 기본값: 1080p 24fps, 편당 9~12분, Edge-TTS `ko-KR-SunHiNeural`, 자막 `.srt` + 영상에 넣은 버전. 다른 요구가 있으면 그대로 따른다.
+- 사용자에게 이미 정해진 것은 다시 묻지 않는다. 기본값: 1080p 24fps, 편당 9~12분, Edge-TTS `ko-KR-InJoonNeural`, 자막 `.srt` + 영상에 넣은 버전. 다른 요구가 있으면 그대로 따른다.
 - 시험 범위(예: 기말 전범위), 정답률 낮아 다시 나올 수 있는 문제("앵콜")를 모든 편의 마지막 "시험 대비 포인트"에 반영한다.
 - 아직 자료가 없는 주차는 만들지 않고, 자료가 나오면 이어서 만든다고 알린다.
 
@@ -58,6 +59,10 @@ missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 �
 - 폴더를 열어 달라고 하면 `open <project>/final`.
 - 프로젝트 상태(완성 편, 남은 주차)를 메모리에 project 로 기록한다.
 
+## 7. 홍보물 (선택)
+- 시리즈를 소개하는 세로 릴스·숏츠는 [Remotion](https://github.com/remotion-dev/remotion) 으로 만든다. `remotion-best-practices` 스킬(Remotion 공식)과 `reel-maker` 스킬을 쓴다.
+- 소개 웹페이지·README 랜딩을 만들 때는 [Hallmark](https://github.com/Nutlope/hallmark)(`npx skills add nutlope/hallmark -g`)로 AI 티 나는 디자인을 피한다. 영상 제작 자체에는 필요 없다.
+
 ## 겪어 본 함정
 | 증상 | 원인 | 해결 |
 |---|---|---|
@@ -70,6 +75,9 @@ missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 �
 | 음성·화면 어긋남 | 세그먼트 끝 0.5초 fade 누락, 애니메이션이 오디오보다 김 | `Seg.end()` 사용, build 출력의 `WARNING` 0개 |
 | watch 스킬 transcript=unavailable | vtt 변환 실패 | `vtt_to_txt.py` 로 직접 변환 |
 | TinyTeX 스크립트가 끝에서 멈춤 | `--no-path` 를 폴더로 착각 | 설치는 완료됨, 링크만 직접 |
+| 대각선 간선 옆 숫자가 전부 `LINE-CROSS 100%` | 기본 검사기는 선의 외곽 상자(bbox)만 비교해서 대각선 옆 글자를 오탐 | `python3 $VS/scripts/patch_validator.py` 로 직선을 실제 선분으로 검사하게 패치 (멱등) |
+| 목소리가 기계적이라는 피드백 | 기본 음성 + 속도 올림 | 같은 문장을 여러 Edge 목소리로 만든 샘플을 `SendUserFile` 로 보내 고르게 한다. 속도는 올리지 않는다 (`+32%` 는 더 기계적으로 들림) |
+| 글 폭이 원 안/카드 안에서 넘침 | CText 폭을 예측 못 함 | `TEXT-OVERFLOW` 경고가 나오면 글자 크기를 줄이거나 컨테이너 키우기 |
 | 에이전트 보고의 수치가 화면과 다름 | 요약 과정의 착오 | 화면·소스 코드로 확인 |
 
 ## 하지 않는 것

@@ -86,6 +86,11 @@ assets/template/             새 편 템플릿 (나레이션, TTS, 장면)
 scripts/                     check_env.sh, new_video.py, extract_sources.py, split_by_marker.py, vtt_to_txt.py, frame_sheet.py
 ```
 
+## 함께 쓰면 좋은 도구
+
+- [Remotion](https://github.com/remotion-dev/remotion): 시리즈 소개용 세로 릴스·숏츠 제작 (선택).
+- [Hallmark](https://github.com/Nutlope/hallmark): 소개 웹페이지를 만들 때 AI 티 나는 디자인 방지 (선택).
+
 ## 참고
 
 - 나레이션은 Edge-TTS 로 만들기 때문에 대본 텍스트가 Microsoft TTS 서비스로 전송됩니다.

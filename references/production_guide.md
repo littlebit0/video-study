@@ -8,7 +8,7 @@
 
 ## 고정 설정 (사용자와 합의됨, 다시 묻지 말 것)
 - 1080p, 24fps. 자막은 `.srt` + 영상에 넣은 버전 둘 다(빌드 스크립트가 처리).
-- 음성: Edge-TTS `ko-KR-SunHiNeural` (`intermediate/common/ko_setup.py` 의 `VOICE`). 약 230음절/분(공백 제외) → 10분 ≈ 2,300음절. 나레이션 텍스트는 Microsoft TTS 서버로 전송된다.
+- 음성: Edge-TTS `ko-KR-InJoonNeural`(사용자가 샘플을 듣고 고른 목소리. 바꾸려면 `ko_setup.py`의 `VOICE`; 다른 후보 `ko-KR-SunHiNeural`, `ko-KR-HyunsuMultilingualNeural`) (`intermediate/common/ko_setup.py` 의 `VOICE`). 약 230음절/분(공백 제외) → 10분 ≈ 2,300음절. 나레이션 텍스트는 Microsoft TTS 서버로 전송된다.
 - 한글 글꼴: `ko_setup.py` import 시 Text 기본 글꼴이 Apple SD Gothic Neo. MathTex 안에 한글 금지.
 - 공용 코드: `intermediate/common/` — `ui.py`(corner_tag, bottom, banner, tag, bullet_list, fit, 색 WARN/OK/BLUE_3B/DIMMED), `seg.py`(Seg 시간 관리), `build.py`(렌더·합치기·자막).
 - 파이썬은 반드시 `~/tools/.venv/bin/python`.
