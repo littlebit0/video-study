@@ -47,6 +47,8 @@ missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 �
 2. 나머지 편은 제작 에이전트로 병렬 진행(`references/agent_prompts.md` 2번, build `--jobs 2`). 진행 중 공통 규칙이 바뀌면 가이드를 고치고 각 에이전트에 SendMessage.
 3. 공용 코드(`intermediate/common/`)는 에이전트가 아니라 나만 고친다. 고치면 이미 끝난 편은 `build.py <slug> --captions-only` 로 다시 합친다(재렌더 없음).
 
+디자인 바닥 규칙(`references/design-floor.md`, Hallmark 를 Manim 영상에 옮긴 것: 색 토큰, 이모지 아이콘 금지, 지어낸 숫자 금지, 화면 글자 80 단어 이하)을 지킨다. 장면을 쓴 뒤 `python3 $VS/scripts/lint_scene.py src/video_<name>.py` 가 FAIL 0 이어야 한다. 배너 색은 `ui.py` 의 `BANNER_GOLD/GREEN/RED/SLATE` 를 쓴다.
+
 ## 5. 검수 (에이전트 보고를 믿지 말고 직접)
 편마다:
 - `$PY $VS/scripts/frame_sheet.py video final/<slug>/<slug>_captioned.mp4 <scratch>/sheet.png 6` → Read 로 보기: 겹침, 잘림, 자막이 내용을 가리는지, 그림과 수치가 맞는지.
@@ -59,9 +61,13 @@ missing 이 있으면 `references/setup.md` 를 보고, **무엇을 어디에 �
 - 폴더를 열어 달라고 하면 `open <project>/final`.
 - 프로젝트 상태(완성 편, 남은 주차)를 메모리에 project 로 기록한다.
 
-## 7. 홍보물 (선택)
-- 시리즈를 소개하는 세로 릴스·숏츠는 [Remotion](https://github.com/remotion-dev/remotion) 으로 만든다. `remotion-best-practices` 스킬(Remotion 공식)과 `reel-maker` 스킬을 쓴다.
-- 소개 웹페이지·README 랜딩을 만들 때는 [Hallmark](https://github.com/Nutlope/hallmark)(`npx skills add nutlope/hallmark -g`)로 AI 티 나는 디자인을 피한다. 영상 제작 자체에는 필요 없다.
+## 7. 홍보 릴스 (선택, 사용자가 원할 때)
+시리즈를 소개하는 세로 릴스·숏츠(30초 안팎)는 이 스킬의 `promo/` 로 만든다. **`promo/PROMO.md` 를 처음부터 읽고 따른다.** Remotion 으로 `reel.json` 하나만 고쳐 렌더한다(음성 InJoon, 카라오케 자막, 터미널 데모, 좋아요·팔로우 엔딩).
+- 먼저 Remotion 공식 스킬 `~/.claude/skills/remotion-best-practices/`(라우터 → remotion-markup, remotion-captions, remotion-render)를 읽는다. 없으면 설치 전에 사용자에게 묻는다(`npx skills add remotion-dev/remotion`).
+- `npm install` 은 약 400 MB 라서 사용자 OK 를 먼저 받는다. 렌더는 설치된 Chrome, `--concurrency=2`.
+- 화면 디자인은 `promo/references/design-floor.md` 를 지킨다.
+- 소개 웹페이지(랜딩, README 상단 시각 자료)를 만들 때만 [Hallmark](https://github.com/Nutlope/hallmark) 스킬(`npx skills add nutlope/hallmark -g`)을 쓴다. 영상 제작에는 필요 없다.
+- 업로드·게시는 하지 않는다.
 
 ## 겪어 본 함정
 | 증상 | 원인 | 해결 |

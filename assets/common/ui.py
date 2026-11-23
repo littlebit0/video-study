@@ -5,6 +5,11 @@ from video_utils.manim_helpers import CText, ACCENT, GOLD, TEAL, SOFT_WHITE, DIM
 WARN = "#FC6255"
 OK = "#83C167"
 BLUE_3B = "#58C4DD"
+# banner fills; use these names instead of literal hex in scenes (references/design-floor.md)
+BANNER_GOLD = "#B8860B"
+BANNER_GREEN = "#2E8B57"
+BANNER_RED = "#C0504D"
+BANNER_SLATE = "#555577"
 DIMMED = "#9AA0A6"  # skill default #555555 is too faint on the dark background
 
 
